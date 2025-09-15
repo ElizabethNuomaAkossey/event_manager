@@ -1,6 +1,8 @@
 from nicegui import ui
 
 
+
+@ui.page("/signin")
 def show_signin_page():
     with ui.element("div").classes("w-screen h-screen flex m-0 p-0 border rounded-2xl overflow-hidden"):
         with ui.element("div").classes("relative h-full w-[55%] bg-gray-100 m-0 p-0 flex items-center justify-center"):

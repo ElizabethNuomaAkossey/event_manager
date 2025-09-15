@@ -1,5 +1,7 @@
 from nicegui import ui,Tailwind
 
+
+@ui.page("/signup")
 def show_signup_page():
     with ui.element("div").classes("w-screen h-screen flex m-0 p-0 border rounded-2xl overflow-hidden"):
         with ui.element("div").classes("relative bg-red-500 h-screen w-[45%] m-0 p-0"):
