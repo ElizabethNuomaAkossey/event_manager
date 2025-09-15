@@ -3,6 +3,7 @@ from nicegui import ui,Tailwind
 
 @ui.page("/signup")
 def show_signup_page():
+    ui.query('.nicegui-content').classes('m-0 p-0 gap-0')
     with ui.element("div").classes("w-screen h-screen flex m-0 p-0 border rounded-2xl overflow-hidden"):
         with ui.element("div").classes("relative bg-red-500 h-screen w-[45%] m-0 p-0"):
             ui.image("https://images.pexels.com/photos/12262184/pexels-photo-12262184.jpeg").classes("h-full blur-sm")

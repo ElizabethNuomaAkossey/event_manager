@@ -17,7 +17,7 @@ ui.add_head_html('''
 
 
 def show_footer():
-    with ui.element("footer").style("background-color: navy;").classes("w-screen h-[250px] bottom-0 fixed left-0"):
+    with ui.element("footer").style("background-color: navy;").classes("w-screen h-[250px]"):
         with ui.element("div").classes("flex flex-col items-center"):
             with ui.element("div").classes("flex flex-row font-bold text-lg mt-4 mb-3"):
                 ui.label("Event").classes("mr-2").classes("text-white")
