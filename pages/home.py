@@ -41,16 +41,22 @@ def show_home_page():
             #         "bg-blue-500 text-white rounded-md p-4 hover:bg-blue-600"
             #     )
     # Upcoming Events
-    with ui.element("section").classes("w-full h-screen bg-blue"):
-        with ui.row().classes("w-full bg-transparent flex flex-row justify-between items-center px-10 py-10"):
+    with ui.element("section").classes("w-full bg-transparent"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
+            with ui.row().classes("gap-0 space-x-2"):
+                ui.label("Upcoming").classes("text-2xl font-bold text-black")
+                ui.label("Events").classes("text-2xl font-bold text-purple-600")
             with ui.row():
-                ui.label("Upcoming")
-                ui.label("Events")
-            with ui.row():
-
-                ui.select(label["Monday","Tuesday","Wednesday","Thursday"])
-                ui.select(value="Event Type", options=[1,2,3])
-                ui.select(Value="Any Category", options=[1,2,3])
+                weekdays = ["Weekdays","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sundays"]
+                ui.select(label="", value="Weekdays", options=weekdays).props('dense outlined')
+                event_type = ["Event type","Indoors","Outdoors"]
+                ui.select(label="", value="Event type", options=event_type).props('dense outlined')
+                any_category = ["Any category", "Any Category"]
+                ui.select(label="", value="Any category", options=any_category).props('dense outlined')
+        with ui.grid(columns=3).classes("w-full px-20"):
+            for i in range(6):
+                with ui.card():
+                    ui.image("https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg")
 
         
 

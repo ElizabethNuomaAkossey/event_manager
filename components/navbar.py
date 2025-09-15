@@ -8,6 +8,6 @@ def show_navbar():
                 ui.label("Hive").classes("text-2xl font-bold text-purple-600")
             
             with ui.element("div").classes("flex items-center"):
-                ui.button("Login",on_click=lambda: ui.navigate.to('/signin')).props("flat dense no-caps").classes("text-black bg-hover:bg-purple-200 shadow-none  px-4 py-2")
+                ui.button("Login",on_click=lambda: ui.navigate.to('/signin')).props("flat dense no-caps").classes("text-black shadow-none  px-4 py-2")
                 ui.button("Signup", on_click=lambda: ui.navigate.to('/signup')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
                 
