@@ -56,10 +56,62 @@ def show_home_page():
         with ui.grid(columns=3).classes("w-full px-20"):
             for i in range(6):
                 with ui.card():
-                    ui.image("https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg")
+                    ui.image("https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg").classes("rounded-lg")
+                    ui.label("BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow").classes("text-lg")
+                    ui.label("Saturdat, March 18, 9.30PM").classes("text-purple-600 text-sm")
+                    with ui.row().classes("text-gray-600 space-x-1 gap-0"):
+                        ui.label("ONLINE EVENT - ")
+                        ui.label("Attend anywhere")
+        with ui.element("div").classes("flex items-center justify-center py-10"):
+            ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
 
+    # Make your own events
+    # Join these brands
+    with ui.element("section").classes("w-full bg-transparent"):
+        with ui.row().classes("w-full flex flex-col justify-between items-center"):
+            with ui.row().classes("gap-0 space-x-2"):
+                ui.label("Join these").classes("text-2xl font-bold text-black")
+                ui.label("brands").classes("text-2xl font-bold text-purple-600")
+            with ui.element("div"):
+                ui.label("We've had the pleasure of working with industry-defining brands. \nThese are just some of them.").classes("whitespace-pre-line")
+
+    # Trending colleges
+    with ui.element("section").classes("w-full bg-transparent"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
+            with ui.row().classes("gap-0 space-x-2"):
+                ui.label("Trending").classes("text-2xl font-bold text-black")
+                ui.label("Colleges").classes("text-2xl font-bold text-purple-600")
+        with ui.grid(columns=3).classes("w-full px-20"):
+            for i in range(3):
+                with ui.card().classes("m-0 p-0"):
+                    ui.image("https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg").classes("rounded-lg")
+                    ui.label("Havard Univerity").classes("text-lg font-bold px-5")
+                    with ui.row().classes("space-x-1 flex justify-between items-center text-xs font-medium py-2 px-5 w-full"):
+                        ui.label("Cambridge, Massachusetts, UK")
+                        ui.button("⋯", on_click=lambda: ui.navigate.to('/universities')).props("flat round dense no-caps") \
+                            .classes("text-black bg-gray-200 hover:bg-gray-300")
+        with ui.element("div").classes("flex items-center gap-0 justify-center py-10"):
+            ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
+                            
+
+    # blogs
+    with ui.element("section").classes("w-full bg-transparent"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
+            with ui.row().classes("gap-0 space-x-2"):
+                ui.label("Our").classes("text-2xl font-bold text-black")
+                ui.label("Blogs").classes("text-2xl font-bold text-purple-600")
+        with ui.grid(columns=3).classes("w-full px-20"):
+            for i in range(3):
+                with ui.card():
+                    ui.image("https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg").classes("rounded-lg")
+                    ui.label("BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow").classes("text-lg")
+                    ui.label("Saturdat, March 18, 9.30PM").classes("text-purple-600 text-sm")
+                    with ui.row().classes("text-gray-600 space-x-1 gap-0"):
+                        ui.label("ONLINE EVENT - ")
+                        ui.label("Attend anywhere")
+        with ui.element("div").classes("flex items-center justify-center py-10"):
+            ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
         
 
-
-
     show_footer()
+
