@@ -1,7 +1,6 @@
-from nicegui import ui
+from nicegui import ui,app
 from components.footer import show_footer
 from components.navbar import show_navbar
-
 
 
 
@@ -66,14 +65,46 @@ def show_home_page():
             ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
 
     # Make your own events
-    # Join these brands
     with ui.element("section").classes("w-full bg-transparent"):
+        with ui.row().classes("w-full h-[90%] flex flex-row justify-around items-center").style("background-color: navy;"):
+            ui.image("/assets/make_your_own_event.png").classes("max-w-[300px] h-[100%] object-contain")
+            with ui.column().classes("text-white max-w-md gap-0"):
+                ui.label("Make your own Event").classes("text-2xl font-bold")
+                ui.label("Lorem ipsum dolor sit amet, consectetur adipiscing elit.") \
+                    .classes("whitespace-pre-line text-sm")
+                with ui.element("div").classes("py-3"):
+                    ui.button("Create Events", on_click=lambda: ui.navigate.to('/create_event')) \
+                        .props("flat dense no-caps") \
+                        .classes("bg-purple-600 hover:bg-purple-500 text-white px-10 py-1 rounded-sm")
+
+            
+
+    # Join these brands
+    with ui.element("section").classes("w-full bg-transparent py-3"):
         with ui.row().classes("w-full flex flex-col justify-between items-center"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Join these").classes("text-2xl font-bold text-black")
                 ui.label("brands").classes("text-2xl font-bold text-purple-600")
-            with ui.element("div"):
-                ui.label("We've had the pleasure of working with industry-defining brands. \nThese are just some of them.").classes("whitespace-pre-line")
+            with ui.element("div").classes("font-medium"):
+                ui.label("We've had the pleasure of working with industry-defining brands. \nThese are just some of them.").classes("whitespace-pre-line text-center")
+        with ui.row().classes("justify-center w-full items-center flex-wrap gap-8 bg-gray-50 rounded px-6 py-4"):
+            logos = [
+                "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/4/4f/Stripe_Logo%2C_revised_2016.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png",
+                "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/e/e5/Medium_icon.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/7/75/Zoom_Communications_Logo.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+                "https://upload.wikimedia.org/wikipedia/commons/5/5e/Grab_logo.svg",
+            ]
+
+            for logo in logos:
+                ui.image(logo).classes(
+                    "max-h-12 max-w-[120px] object-contain"
+                )
+
 
     # Trending colleges
     with ui.element("section").classes("w-full bg-transparent"):

@@ -11,8 +11,7 @@ from pages.not_found import *
 
 
 # Load font awesome for socials
-
-
+app.add_static_files("/assets","assets")
   
 
 ui.run()
