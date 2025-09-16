@@ -66,8 +66,8 @@ def show_home_page():
 
     # Make your own events
     with ui.element("section").classes("w-full bg-transparent"):
-        with ui.row().classes("w-full h-[90%] flex flex-row justify-around items-center").style("background-color: navy;"):
-            ui.image("/assets/make_your_own_event.png").classes("max-w-[300px] h-[100%] object-contain")
+        with ui.row().classes("w-full h-[90%] flex flex-row justify-around relative items-center").style("background-color: navy;"):
+            ui.image("/assets/make_your_own_event.png").classes("max-w-[300px] h-[100%] absolute object-contain")
             with ui.column().classes("text-white max-w-md gap-0"):
                 ui.label("Make your own Event").classes("text-2xl font-bold")
                 ui.label("Lorem ipsum dolor sit amet, consectetur adipiscing elit.") \
