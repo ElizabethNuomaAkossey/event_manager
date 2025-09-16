@@ -10,7 +10,7 @@ def show_signin_page():
                 with ui.card().classes("w-[80%] h-[100%] bg-transparent flex flex-col items-center m-0 pt-8 shadow-none border-none"):
                     
                     # Top row: Event + Hive
-                    with ui.element("div").classes("flex justify-center items-center space-x-2 mt-2"):
+                    with ui.link("","/").classes("flex justify-center items-center no-underline space-x-2 mt-2"):
                         ui.label("Event").classes("text-s font-bold text-black")
                         ui.label("Hive").classes("text-s font-bold text-purple-500")
 

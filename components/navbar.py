@@ -3,7 +3,7 @@ from nicegui import ui
 
 def show_navbar():
    with ui.element("div").classes("flex justify-between items-center w-full px-10 py-5"):
-            with ui.element("div").classes("flex items-center space-x-2 "):
+            with ui.link("","/").classes("flex items-center space-x-2 no-underline"):
                 ui.label("Event").classes("text-2xl font-bold text-black")
                 ui.label("Hive").classes("text-2xl font-bold text-purple-600")
             
