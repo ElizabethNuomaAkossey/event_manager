@@ -1,6 +1,11 @@
 from nicegui import ui,app
 from components.footer import show_footer
 from components.navbar import show_navbar
+from components.event_card import show_event_card
+
+# for api
+import requests
+from utils.api import base_url
 
 
 
@@ -40,7 +45,7 @@ def show_home_page():
                     "bg-blue-500 text-white rounded-md hover:bg-blue-600 px-2 py-2"
                 )
     # Upcoming Events
-    with ui.element("section").classes("w-full bg-transparent"):
+    with ui.element("section").classes("w-full bg-transparent gap-0"):
         with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Upcoming").classes("text-2xl font-bold text-black")
@@ -53,14 +58,11 @@ def show_home_page():
                 any_category = ["Any category", "Any Category"]
                 ui.select(label="", value="Any category", options=any_category).props('dense outlined')
         with ui.grid(columns=3).classes("w-full px-20"):
-            for i in range(6):
-                with ui.card():
-                    ui.image("https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg").classes("rounded-lg")
-                    ui.label("BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow").classes("text-lg")
-                    ui.label("Saturdat, March 18, 9.30PM").classes("text-purple-600 text-sm")
-                    with ui.row().classes("text-gray-600 space-x-1 gap-0"):
-                        ui.label("ONLINE EVENT - ")
-                        ui.label("Attend anywhere")
+            response = requests.get(f"{base_url}/events?limit=6")
+            # print(response.status_code, response.content) -to check if there are any errors
+            json_data = response.json()
+            for e in json_data["data"]:
+                show_event_card(e)
         with ui.element("div").classes("flex items-center justify-center py-10"):
             ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
 
@@ -108,7 +110,7 @@ def show_home_page():
 
     # Trending colleges
     with ui.element("section").classes("w-full bg-transparent"):
-        with ui.row().classes("w-full flex flex-row justify-between items-center mx-20 py-10"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center py-10"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Trending").classes("text-2xl font-bold text-black")
                 ui.label("Colleges").classes("text-2xl font-bold text-purple-600")
