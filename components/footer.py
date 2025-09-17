@@ -1,20 +1,6 @@
 from nicegui import ui,html
 
 
-ui.add_head_html('''
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-                 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-</style>
-''')
-
 
 def show_footer():
     with ui.element("footer").style("background-color: navy;").classes("w-full"):
@@ -37,38 +23,22 @@ def show_footer():
                  for item in navlinks:
                      ui.link(item["title"], item["path"]).classes("no-underline text-white")
         
-        ui.element("div").classes("bg-white w-[1075px] h-[0.2px] mx-auto mb-3")
+        ui.element("div").classes("bg-white item-center justify-center w-[89%] min-h-[0.2px] mx-20")
 
-        with ui.element("div"):
-            with ui.element("div"):
-                    ui.link("English")
-                    ui.link("French")
-                    ui.link("Hindi")
-        # with ui.element("div").classes("bg-red w-[200px] h-[30px]"):
-        #     ui.html('<i class="fa-brands fa-square-facebook"></i>')
-        #     ui.html('<i class="fa-brands fa-instagram"></i>')
-        #     ui.html('<i class="fa-brands fa-x-twitter"></i>')
+        with ui.row().classes("justify-between items-center justify-center px-20 text-white my-5"):
+            with ui.element("div").classes("space-x-1"):
+                    ui.button("English").props("dense flat no-caps").classes("bg-purple-600 text-white px-5")
+                    ui.button("French").props("dense flat no-caps").classes("text-white")
+                    ui.button("Hindi").props("dense flat no-caps").classes("text-white")  
+            with ui.element("div").classes("w-[200px] h-[30px]"):
+                ui.html('<i class="fa-brands fa-square-linkedin"></i>')
+                ui.html('<i class="fa-brands fa-instagram"></i>')
+                ui.html('<i class="fa-brands fa-facebook"></i>') 
+            ui.label("Non Copyrighted © 2023 Upload by EventHive")
 
             
-        # 
-        #             # navlinks
-        #             navlinks = [
-        #                 {"title":"Home","path":"/"},
-        #                 {"title":"Menu","path":"/"},
-        #                 {"title":"About","path":"/"},
-        #                 {"title":"Gallery","path":"/"},
-        #                 {"title":"Blog","path":"/"},
-        #                 {"title":"Contact","path":"/"}
-        #             ]
-        #             with ui.row():
-        #                 for item in navlinks:
-        #                     ui.link(item["title"], item["path"]).classes("no-underline uppercase text-black font-bold")
-                    
-        #             # socials fac
-        #             with ui.row().classes():
-        #                 ui.html('<i class="fa-brands fa-square-facebook"></i>')
-        #                 ui.html('<i class="fa-brands fa-instagram"></i>')
-        #                 ui.html('<i class="fa-brands fa-x-twitter"></i>')
+       
+      
         
 
 

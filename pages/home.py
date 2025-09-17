@@ -10,35 +10,35 @@ def show_home_page():
     show_navbar()
     with ui.element("main").classes("w-full h-screen px-5"):
         with ui.element("div").classes("bg-[url('https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg')] bg-cover bg-center w-full h-[80%] flex flex-col justify-center rounded-xl items-center relative"):
-            with ui.column().classes("text-white text-7xl font-bold items-center"):
+            with ui.column().classes("text-white text-7xl font-bold justify-center items-center"):
                 ui.label("MADE FOR THOSE")
                 ui.label("WHO DO")
                 
-            #     # --- Search filter box ---
-            # with ui.element("div").classes(
-            #     "absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 flex space-x-4 "
-            #     "bg-blue-900 p-6 rounded-2xl shadow-xl w-[500px]"):
-            #     # Looking for
-            #     with ui.element("div").classes("flex flex-col text-white"):
-            #         ui.label("Looking for").classes("text-sm mb-1")
-            #         ui.select(["Conference", "Workshop", "Meetup"], value="Conference").classes("bg-white text-black rounded-md h-10 w-48")
+                # --- Search filter box ---
+            with ui.element("div").classes(
+                "absolute bottom-[-12%] left-1/2 transform -translate-x-1/2 flex space-x-4 "
+                "px-6 py-6 items-center justify-center rounded-2xl shadow-xl w-[90%]").style("background-color: navy;"):
+                # Looking for
+                with ui.element("div").classes("flex flex-col text-white"):
+                    ui.label("Looking for").classes("text-sm mb-1")
+                    ui.select(["Conference", "Workshop", "Meetup"], value="Conference").classes("bg-white text-black rounded-md px-4 py-2 w-48")
 
-            # #     # Location
-            #     with ui.element("div").classes("flex flex-col text-white"):
-            #         ui.label("Location").classes("text-sm mb-1")
-            #         ui.select(["New York", "London", "Berlin"], value="New York") \
-            #             .classes("bg-white text-black rounded-md px-4 py-2 w-48")
+            #     # Location
+                with ui.element("div").classes("flex flex-col text-white"):
+                    ui.label("Location").classes("text-sm mb-1")
+                    ui.select(["New York", "London", "Berlin"], value="New York") \
+                        .classes("bg-white text-black rounded-md px-4 py-2 w-48")
 
-            #     # When
-            #     with ui.element("div").classes("flex flex-col text-white"):
-            #         ui.label("When").classes("text-sm mb-1")
-            #         ui.input("Choose date and time") \
-            #             .classes("bg-white text-black rounded-md px-4 py-2 w-48")
+                # When
+                with ui.element("div").classes("flex flex-col text-white"):
+                    ui.label("When").classes("text-sm mb-1")
+                    ui.input("Choose date and time") \
+                        .classes("bg-white text-black rounded-md px-4 py-2 w-48")
 
-            #     # Search button
-            #     ui.button("").props("icon=search").classes(
-            #         "bg-blue-500 text-white rounded-md p-4 hover:bg-blue-600"
-            #     )
+                # Search button
+                ui.button("").props("icon=search").classes(
+                    "bg-blue-500 text-white rounded-md hover:bg-blue-600 px-2 py-2"
+                )
     # Upcoming Events
     with ui.element("section").classes("w-full bg-transparent"):
         with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
@@ -65,10 +65,10 @@ def show_home_page():
             ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
 
     # Make your own events
-    with ui.element("section").classes("w-full bg-transparent"):
-        with ui.row().classes("w-full h-[90%] flex flex-row justify-around relative items-center").style("background-color: navy;"):
+    with ui.element("section").classes("w-full my-5").style("background-color: navy;"):
+        with ui.row().classes("w-full flex flex-row justify-around relative items-center"):
             ui.image("/assets/make_your_own_event.png").classes("max-w-[300px] h-[100%] absolute object-contain")
-            with ui.column().classes("text-white max-w-md gap-0"):
+            with ui.column().classes("text-white max-w-md gap-0 py-5"):
                 ui.label("Make your own Event").classes("text-2xl font-bold")
                 ui.label("Lorem ipsum dolor sit amet, consectetur adipiscing elit.") \
                     .classes("whitespace-pre-line text-sm")
@@ -80,35 +80,35 @@ def show_home_page():
             
 
     # Join these brands
-    with ui.element("section").classes("w-full bg-transparent py-3"):
+    with ui.element("section").classes("w-full bg-transparent py-5"):
         with ui.row().classes("w-full flex flex-col justify-between items-center"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Join these").classes("text-2xl font-bold text-black")
                 ui.label("brands").classes("text-2xl font-bold text-purple-600")
             with ui.element("div").classes("font-medium"):
                 ui.label("We've had the pleasure of working with industry-defining brands. \nThese are just some of them.").classes("whitespace-pre-line text-center")
-        with ui.row().classes("justify-center w-full items-center flex-wrap gap-8 bg-gray-50 rounded px-6 py-4"):
+        with ui.row().classes("justify-center w-full items-center flex-wrap gap-9 bg-gray-50 rounded px-20 py-5"):
             logos = [
-                "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/4/4f/Stripe_Logo%2C_revised_2016.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png",
-                "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/e/e5/Medium_icon.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/7/75/Zoom_Communications_Logo.svg",
-                "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
-                "https://upload.wikimedia.org/wikipedia/commons/5/5e/Grab_logo.svg",
+                "/assets/spotify.png",
+                "/assets/Google.png",
+                "/assets/stripe.png",
+                "/assets/Youtube.png",
+                "/assets/microsoft.png",
+                "/assets/Medium.png",
+                "/assets/zoom.png",
+                "/assets/uber.png",
+                "/assets/grab.png",
             ]
 
             for logo in logos:
                 ui.image(logo).classes(
-                    "max-h-12 max-w-[120px] object-contain"
+                    "max-h-14 max-w-[150px] object-contain"
                 )
 
 
     # Trending colleges
     with ui.element("section").classes("w-full bg-transparent"):
-        with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center mx-20 py-10"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Trending").classes("text-2xl font-bold text-black")
                 ui.label("Colleges").classes("text-2xl font-bold text-purple-600")
