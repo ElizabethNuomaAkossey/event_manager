@@ -16,6 +16,11 @@ def _handle_image_upload(e):    # where e stands for event
 # function to handle the button "create event"
 def _post_event(data, files):
     response = requests.post(f"{base_url}/events", data=data, files=files)
+    if response.status_code == 200:
+        ui.notify(message="Event added Successfully!", type="positive")
+        return ui.navigate.to("/")
+    elif response.status_code == 422:
+        return ui.notify(message="please ensure all input are filled!",type='warning')
     print(response.status_code)
     json_data = response.json()
     print(json_data)
@@ -69,12 +74,12 @@ def show_create_event_page():
                 "title": event_title.value,
                 "venue": event_venue.value,
                 "start_time": event_start_time.value,
-                "end_time": event_start_time,
-                "start_date": event_start_date,
-                "end_date": event_end_date},
+                "end_time": event_start_time.value,
+                "start_date": event_start_date.value,
+                "end_date": event_end_date.value,
+                "description": event_description.value},
                 files={
                     "image":_event_image
                 }
-                )).props
-            ("flat dense no-caps").classes("bg-purple-600 w-full text-white py-1")
+                )).props("flat dense no-caps").classes("bg-purple-600 w-full text-white py-1")
                             
