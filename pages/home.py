@@ -12,37 +12,37 @@ from utils.api import base_url
 @ui.page("/")
 def show_home_page():
     ui.query('.nicegui-content').classes('m-0 p-0 gap-0')
+    ui.query('#app').classes("m-0 p-o gap-0")
     show_navbar()
-    with ui.element("main").classes("w-full h-screen px-5"):
+    with ui.element("main").classes("w-full h-screen"):
         with ui.element("div").classes("bg-[url('https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg')] bg-cover bg-center w-full h-[80%] flex flex-col justify-center rounded-xl items-center relative"):
-            with ui.column().classes("text-white text-7xl font-bold justify-center items-center"):
+            with ui.column().classes("text-white md:text-7xl font-bold flex justify-center items-center"):
                 ui.label("MADE FOR THOSE")
                 ui.label("WHO DO")
                 
                 # --- Search filter box ---
             with ui.element("div").classes(
-                "absolute bottom-[-12%] left-1/2 transform -translate-x-1/2 flex space-x-4 "
-                "px-6 py-6 items-center justify-center rounded-2xl shadow-xl w-[90%]").style("background-color: navy;"):
+                "absolute bottom-[-12%] left-1/2 transform -translate-x-1/2 flex space-x-4 px-20 gap-8 flex justify-center py-6 rounded-2xl shadow-xl w-[93%]").style("background-color: navy;"):
                 # Looking for
                 with ui.element("div").classes("flex flex-col text-white"):
                     ui.label("Looking for").classes("text-sm mb-1")
-                    ui.select(["Conference", "Workshop", "Meetup"], value="Conference").classes("bg-white text-black rounded-md px-4 py-2 w-48")
+                    ui.select(["Conference", "Workshop", "Meetup"], value="Conference").classes("bg-white text-black rounded-md px-4 w-72")
 
             #     # Location
                 with ui.element("div").classes("flex flex-col text-white"):
                     ui.label("Location").classes("text-sm mb-1")
                     ui.select(["New York", "London", "Berlin"], value="New York") \
-                        .classes("bg-white text-black rounded-md px-4 py-2 w-48")
+                        .classes("bg-white text-black rounded-md px-4 w-72")
 
                 # When
                 with ui.element("div").classes("flex flex-col text-white"):
                     ui.label("When").classes("text-sm mb-1")
                     ui.input("Choose date and time") \
-                        .classes("bg-white text-black rounded-md px-4 py-2 w-48")
+                        .classes("bg-white text-black rounded-md px-4 w-72")
 
                 # Search button
-                ui.button("").props("icon=search").classes(
-                    "bg-blue-500 text-white rounded-md hover:bg-blue-600 px-2 py-2"
+                ui.button("").props("icon=search dense flat no-caps").classes(
+                    "bg-purple-600  bg:hover-purple-200 text-white  justify-center rounded-md hover:bg-purple-500 py-5 px-5 gap-0"
                 )
     # Upcoming Events
     with ui.element("section").classes("w-full bg-transparent gap-0"):
@@ -57,7 +57,7 @@ def show_home_page():
                 ui.select(label="", value="Event type", options=event_type).props('dense outlined')
                 any_category = ["Any category", "Any Category"]
                 ui.select(label="", value="Any category", options=any_category).props('dense outlined')
-        with ui.grid(columns=3).classes("w-full px-20"):
+        with ui.grid().classes("grid grid-cols-1 md:grid-cols-3 w-full md:px-20"):
             response = requests.get(f"{base_url}/events?limit=6")
             # print(response.status_code, response.content) -to check if there are any errors
             json_data = response.json()
@@ -67,17 +67,16 @@ def show_home_page():
             ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
 
     # Make your own events
-    with ui.element("section").classes("w-full my-5").style("background-color: navy;"):
-        with ui.row().classes("w-full flex flex-row justify-around relative items-center"):
-            ui.image("/assets/make_your_own_event.png").classes("max-w-[300px] h-[100%] absolute object-contain")
-            with ui.column().classes("text-white max-w-md gap-0 py-5"):
-                ui.label("Make your own Event").classes("text-2xl font-bold")
-                ui.label("Lorem ipsum dolor sit amet, consectetur adipiscing elit.") \
-                    .classes("whitespace-pre-line text-sm")
-                with ui.element("div").classes("py-3"):
-                    ui.button("Create Events", on_click=lambda: ui.navigate.to('/create_event')) \
-                        .props("flat dense no-caps") \
-                        .classes("bg-purple-600 hover:bg-purple-500 text-white px-10 py-1 rounded-sm")
+    with ui.column().classes("w-full mt-20").style("background-color: navy;"):
+        with ui.grid(columns=2).classes("w-full h-full"):
+            with ui.column().classes("relative"):
+                ui.image("/assets/make_your_own_event.png").classes(" absolute bottom-0")
+
+            with ui.column().classes("items-center mt-20"):
+                ui.label("Make Your Own Event").classes("text-4xl font-bold text-white")
+                ui.label("Create Your Own Experience").classes("text-xl text-white")
+                ui.button("Create Event").props("flat dense no-caps").classes("bg-blue text-white text-bold")
+
 
             
 
@@ -110,11 +109,11 @@ def show_home_page():
 
     # Trending colleges
     with ui.element("section").classes("w-full bg-transparent"):
-        with ui.row().classes("w-full flex flex-row justify-between items-center py-10"):
+        with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Trending").classes("text-2xl font-bold text-black")
                 ui.label("Colleges").classes("text-2xl font-bold text-purple-600")
-        with ui.grid(columns=3).classes("w-full px-20"):
+        with ui.grid().classes("grid grid-cols-1 md:grid-cols-3 w-full px-20"):
             for i in range(3):
                 with ui.card().classes("m-0 p-0"):
                     ui.image("https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg").classes("rounded-lg")
@@ -127,13 +126,13 @@ def show_home_page():
             ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
                             
 
-    # blogs
+    # blogs                     
     with ui.element("section").classes("w-full bg-transparent"):
         with ui.row().classes("w-full flex flex-row justify-between items-center px-20 py-10"):
             with ui.row().classes("gap-0 space-x-2"):
                 ui.label("Our").classes("text-2xl font-bold text-black")
                 ui.label("Blogs").classes("text-2xl font-bold text-purple-600")
-        with ui.grid(columns=3).classes("w-full px-20"):
+        with ui.grid().classes("grid grid-cols-1 md:grid-cols-3 w-full px-20"):
             for i in range(3):
                 with ui.card():
                     ui.image("https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg").classes("rounded-lg")

@@ -58,6 +58,7 @@ def show_event_page():
                             ui.label("Attend anywhere")
             with ui.element("div").classes("flex items-center justify-center py-10"):
                 ui.button("Load More...", on_click=lambda: ui.navigate.to('/loadmore')).props("flat dense no-caps").classes("bg-purple-600 text-white shadow hover:bg-purple-500 px-4 py-2")
+
     elif response.status_code == 422:
         ui.label(text="Not found")
     show_footer()

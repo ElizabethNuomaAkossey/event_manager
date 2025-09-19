@@ -29,9 +29,10 @@ def _post_event(data, files):
 
 @ui.page("/create_event")
 def show_create_event_page():
+    ui.query('.nicegui-row').classes('flex-nowrap')
     show_navbar()
     with ui.element("section").classes("w-full"):
-        with ui.card().classes("mx-[25%] flex flex-col items-center justify-center bg-gray-40"):
+        with ui.card().classes("md:mx-[25%] flex flex-col items-center justify-center bg-gray-40"):
             ui.label("Create Event").classes("text-2xl font-bold py-2")
 
             with ui.element("div").classes("flex flex-col w-full py-2"):
@@ -42,26 +43,26 @@ def show_create_event_page():
                 ui.label("Event Venue").classes("text-xs text-left py-2") 
                 event_venue = ui.input(placeholder="Enter the event venue").props("flat dense no-caps outlined").classes("bg-white")
             
-            with ui.element("div").classes("flex  w-full flex-row justify-between py-2"):
-                with ui.element("div").classes("flex flex-col w-[48%]"):
+            with ui.element("div").classes("flex w-full flex-row justify-between"):
+                with ui.element("div").classes("flex flex-col md:w-[48%]"):
                     ui.label("Start time").classes("text-xs") 
                     event_start_time = ui.input().props("outlined type=time")
                     
-                with ui.element("div").classes("flex flex-col w-[50%]"):
-                    ui.label("End time").classes("text-xs text-left") 
+                with ui.element("div").classes("flex flex-col md:w-[50%]"):
+                    ui.label("End time").classes("text-xs text-left py-2") 
                     event_end_time = ui.input().props("outlined type=time")
     
             with ui.element("div").classes("flex w-full flex-row justify-between"):
-                with ui.element("div").classes("flex flex-col w-[48%]"):
+                with ui.element("div").classes("flex flex-col md:w-[48%]"):
                     ui.label("Start date").classes("text-xs py-2")
                     event_start_date = ui.input().props("outlined type=date") 
         
-                with ui.element("div").classes("flex flex-col w-[50%]"):
+                with ui.element("div").classes("flex flex-col md:w-[50%]"):
                     ui.label("End date").classes("text-xs text-left py-2") 
                     event_end_date = ui.input().props("outlined type=date")
     
     with ui.element("div").classes("w-full my-10"):
-        with ui.card().classes("items-center justify-center flex flex-col mx-[25%]"):
+        with ui.card().classes("items-center justify-center flex flex-col md:mx-[25%]"):
             ui.label("Event Description").classes("text-2xl font-bold")
             with ui.column().classes("flex flex-col w-full"):
                 ui.label("Event Image")
